@@ -130,13 +130,4 @@ function change_order_status_conditionally($order_id, $status_from, $status_to, 
         $order->update_status('completed'); // أو 'processing' إذا كنت تفضل ذلك
     }
 }
-
-// Enqueue the Jaib scripts
-function enqueue_jaib_scripts() {
-    wp_enqueue_script('jaib-scripts', plugins_url('includes/jaib-scripts.js', __FILE__), array('jquery'), null, true);
-    wp_localize_script('jaib-scripts', 'jaib_script_vars', array(
-        'ajaxurl' => admin_url('admin-ajax.php'),
-    ));
-}
-add_action('wp_enqueue_scripts', 'enqueue_jaib_scripts');
 ?>
