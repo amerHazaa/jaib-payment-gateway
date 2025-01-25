@@ -1,8 +1,8 @@
 <?php
 /*
 Plugin Name: WooCommerce Jaib Payment Gateway
-Description: Extends WooCommerce with Jaib Payment Gateway.
-Version: 1.0.0
+Description:  WooCommerce-Jaib Payment Gateway.
+Version: 1.0.1
 Author: mERO
 */
 
@@ -105,13 +105,4 @@ add_action('plugins_loaded', 'jaib_gateway_init', 11);
 
 // Include the AJAX handler for executing the buy
 include_once 'includes/execute-buy.php';
-
-// Enqueue the Jaib scripts
-function enqueue_jaib_scripts() {
-    wp_enqueue_script('jaib-scripts', plugins_url('includes/jaib-scripts.js', __FILE__), array('jquery'), null, true);
-    wp_localize_script('jaib-scripts', 'jaib_script_vars', array(
-        'ajaxurl' => admin_url('admin-ajax.php'),
-    ));
-}
-add_action('wp_enqueue_scripts', 'enqueue_jaib_scripts');
 ?>
